@@ -17,6 +17,7 @@
         <activity android:name="list"></activity>
         <activity android:name="settings"></activity>
         <activity android:name="sentlist"></activity>
+        <activity android:name="newmsg"></activity>
 
     </application>
 </manifest>

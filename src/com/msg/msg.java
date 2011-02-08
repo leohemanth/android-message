@@ -1,8 +1,8 @@
 package com.msg;
 
+
 import java.util.HashMap;
 import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,9 +22,11 @@ public class msg extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+
 		SQLiteDatabase myDB = this.openOrCreateDatabase("DatabaseName",
 				MODE_PRIVATE, null);
 
+		SQLiteDatabase.openDatabase("DatabaseName",null,SQLiteDatabase.OPEN_READWRITE);
 		myDB.execSQL("CREATE TABLE IF NOT EXISTS mytablesent (id integer primary key autoincrement , msg varchar(500) , date TEXT );");
 
 		myDB.execSQL("CREATE TABLE IF NOT EXISTS " + "settings"
@@ -86,7 +88,39 @@ public class msg extends Activity {
 			}
 		});
 
-		
+
+		Button deletebtn = (Button) findViewById(R.id.deletebtn);
+
+		deletebtn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// Takes to the Order Booking Page.
+				SQLiteDatabase myDB = msg.this.openOrCreateDatabase(
+						"DatabaseName", MODE_PRIVATE, null);
+
+				myDB.execSQL("delete FROM mytable ;");
+				myDB.execSQL("delete FROM mytablesent ;");
+
+			
+			}
+			
+
+		});
+
+		Button addnewbt = (Button) findViewById(R.id.addnew);
+
+		addnewbt.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// Takes to the Order Booking Page.
+				Intent intent = new Intent(msg.this, com.msg.newmsg.class);
+
+				startActivity(intent);
+
+
+			
+			}
+			
+
+		});
 		Button sendrandbtn = (Button) findViewById(R.id.sendrandbtn);
 
 		sendrandbtn.setOnClickListener(new OnClickListener() {

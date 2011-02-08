@@ -86,7 +86,7 @@ public class list extends Activity {
 				// Toast.makeText(this, c.getString(c.getColumnIndex("number")),
 				// 5).show();
 
-				// sms.sendTextMessage(c.getString(c.getColumnIndex("number")),null,msg,pi,null);
+				 sms.sendTextMessage(c.getString(c.getColumnIndex("number")),null,msg,pi,null);
 				Toast.makeText(
 						list.this,
 						"message number" + Id + "  " + "sent to "
