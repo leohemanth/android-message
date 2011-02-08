@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-    <TextView android:text="phone number" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/editText1" android:text="EditText"  android:numeric="integer"></EditText>
-    <Button android:text="save" android:id="@+id/buttonsave" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<TextView android:text="phone number" android:id="@+id/textView1"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	<EditText android:layout_height="wrap_content"
+		android:layout_width="match_parent" android:id="@+id/editText1"
+		android:text="EditText" android:numeric="integer"></EditText>
+	<CheckBox android:text="alarm" android:id="@+id/alarmck"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+	<RadioGroup android:id="@+id/alm" android:layout_height="wrap_content"
+		android:layout_width="match_parent" >
+		<RadioButton android:text="once" android:id="@+id/radioButton1"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:enabled="false"></RadioButton>
+		<RadioButton android:text="repeat" android:id="@+id/radioButton2"
+			android:enabled="false" android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+	</RadioGroup>
+	<EditText android:hint="enter time in hrs" android:id="@+id/alarmtm"
+		android:layout_height="wrap_content" android:layout_width="match_parent"
+		android:inputType="number" android:enabled="false"></EditText>
+	<Button android:text="save" android:id="@+id/buttonsave"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 
 </LinearLayout>

@@ -33,11 +33,6 @@ public class sentlist extends Activity {
 				MODE_PRIVATE, null);
 
 		myDB.execSQL("CREATE TABLE IF NOT EXISTS mytablesent (id integer primary key autoincrement , msg varchar(500) , date TEXT );");
-
-		/*
-		 *insert into mytablesent (msg,date) values ('msg','dbdate'); 
-		 * update mytablesent set date=(select strftime('%d-%m-%Y %H:%M:%S', 'now'));
-		 */
 		Cursor c = myDB.rawQuery("SELECT * FROM " + "mytablesent", null);
 
 		c.moveToFirst();
@@ -55,8 +50,8 @@ public class sentlist extends Activity {
 			} while (c.moveToNext());
 		}
 
-		String[] strFrom = { "Id", "msg","date" };
-		int[] iTo = { R.id.textView1, R.id.textView2,R.id.textView3 };
+		String[] strFrom = { "Id", "msg", "date" };
+		int[] iTo = { R.id.textView1, R.id.textView2, R.id.textView3 };
 
 		SimpleAdapter saAdapter = new SimpleAdapter(
 				this.getApplicationContext(),
@@ -76,7 +71,6 @@ public class sentlist extends Activity {
 				String Id = ((TextView) arg1.findViewById(R.id.textView1))
 						.getText().toString();
 
-				// Takes to the Order Detail Page to display the order details.
 				PendingIntent pi = PendingIntent.getActivity(sentlist.this, 0,
 						new Intent(sentlist.this, sentlist.class), 0);
 				SmsManager sms = SmsManager.getDefault();
@@ -90,20 +84,23 @@ public class sentlist extends Activity {
 				// Toast.makeText(this, c.getString(c.getColumnIndex("number")),
 				// 5).show();
 
-				// sms.sendTextMessage(c.getString(c.getColumnIndex("number")),null,msg,pi,null);
+				sms.sendTextMessage(c.getString(c.getColumnIndex("number")),
+						null, msg, pi, null);
 				Toast.makeText(
 						sentlist.this,
 						"message number" + Id + "  " + "sent again to "
 								+ c.getString(c.getColumnIndex("number"))
 								+ "and removed from list", 5).show();
 
-				//myDB.execSQL("delete FROM mytable where id =" + Id + ";");
+				// myDB.execSQL("delete FROM mytable where id =" + Id + ";");
 
-				 sms.sendTextMessage(c.getString(c.getColumnIndex("number")),null,msg,pi,null);
-				myDB.execSQL("insert into mytablesent (msg,date) values ('"+msg+"','dbdate');");
+				sms.sendTextMessage(c.getString(c.getColumnIndex("number")),
+						null, msg, pi, null);
+				myDB.execSQL("insert into mytablesent (msg,date) values ('"
+						+ msg + "','dbdate');");
 
 				myDB.execSQL("update mytablesent set date=(select strftime('%d-%m-%Y %H:%M:%S', 'now'));");
-		
+
 				Intent intent = new Intent(sentlist.this,
 						com.msg.sentlist.class);
 

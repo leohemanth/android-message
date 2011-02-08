@@ -6,15 +6,7 @@
 		android:layout_height="wrap_content" android:text="@string/hello" />
 	<Button android:text="List of messages to send" android:id="@+id/listpagebutton"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-	<Button android:text="settings" android:id="@+id/mainbuttonsave"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 	<Button android:layout_height="wrap_content" android:id="@+id/sendrandbtn"
 		android:text="send a random msg" android:layout_width="wrap_content"></Button>
-	<Button android:text="sent" android:id="@+id/sentbtn"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-	<Button android:text="deleteall" android:id="@+id/deletebtn"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-	<Button android:text="addnew" android:id="@+id/addnew"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 
 </LinearLayout>
